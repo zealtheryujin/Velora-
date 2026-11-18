@@ -50,7 +50,7 @@ follows the frames with G-SYNC or FreeSync. No capture card needed.
 >   before you start a game.
 
 <p align="center">
-  <img src="docs/velora-player.png" alt="Velora: the PS5 picture with the top bar (30 > 120 fps) and the presets" width="100%">
+  <img src="docs/velora-player.png" alt="Velora: the PS5 picture edge to edge, the top bar (30 > 118 fps), the window buttons top right and the presets" width="100%">
 </p>
 
 ## Features
@@ -79,6 +79,8 @@ follows the frames with G-SYNC or FreeSync. No capture card needed.
   generation, latency and sharpening together.
 - **Live numbers** in the top bar: real and shown frame rate, resolution and
   bitrate.
+- **Edge-to-edge window**: no title bar, the picture fills the window; its own
+  window buttons sit with the other controls.
 - **Three latency modes**, sound with automatic sync, dark and light theme,
   full screen, controls that hide when you play.
 
@@ -140,7 +142,10 @@ Move the mouse to show the controls; they fade while you play.
 - **Presets** (bottom): Responsive, Smooth, Pure. *Custom* appears when you
   change settings by hand.
 - **Top bar** (top left): click it for the console settings.
-- **Settings** (gear, top right): Console, Frames, Picture, Audio, Help.
+- **Top right**: full screen, Settings, then minimize, maximize and close.
+  There is no Windows title bar: drag the top of the window to move it,
+  double-click there to maximize, drag the edges to resize.
+- **Settings** (gear): Console, Frames, Picture, Audio, Help.
 
 <p align="center">
   <img src="docs/velora-settings.png" alt="Velora settings: side menu with Console, Frames, Picture, Audio and Help" width="720">
