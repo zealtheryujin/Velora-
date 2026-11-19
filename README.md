@@ -256,14 +256,18 @@ cd payload/ps5
 PS5_PAYLOAD_SDK=/path/to/ps5-payload-sdk make velora   # payload/build/velora-payload.elf
 ```
 
-After changing the dashboard or banner:
+The logo lives in `app/res/velora_logo.png`. After changing it, remake
+everything that shows it (exe icon, Discord asset, banners, the app's and the
+dashboard's mark) and re-embed the payload's web assets:
 
 ```bash
+python app/tools/make_velora_brand.py
 powershell -File tools/make_velora_payload_assets.ps1
 node tools/gen_blobs.js
 ```
 
-The icon and logo come from `app/tools/make_velora_icon.ps1`.
+`app/tools/cut_velora_logo.py` cuts a new artwork out of a flattened
+checkerboard background.
 
 ## Troubleshooting
 
