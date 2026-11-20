@@ -151,9 +151,31 @@ Move the mouse to show the controls; they fade while you play.
   <img src="docs/velora-settings.png" alt="Velora settings: side menu with Console, Frames, Picture, Audio and Help" width="720">
 </p>
 
-For the smoothest picture: pick **Smooth**, set **Output target** to
-**Monitor** (Settings → Frames), turn **G-SYNC** on (Settings → Picture →
-Display) and go full screen.
+### Recommended settings
+
+What Velora was tuned on: an RTX 3060 at 2560x1440, a wired PS5 and a 30 fps
+game (Ghost of Yōtei). They give a steady 60 fps with low delay and keep the
+CPU out of the way.
+
+| Where | Setting | Value | Why |
+|---|---|---|---|
+| Frames → Frame generation | Engine | **NVIDIA DLSS-G** | AMD FSR 3 on cards without DLSS-G. |
+| | Frames | **2X** | One generated frame per real one. |
+| | Output target | **60 fps** | A 30 fps game becomes an even 60, with no switching between multipliers. |
+| | Motion vectors | **Off** | The video is then decoded on the GPU: ~3 ms per frame instead of 10–13 ms (and 40–56 ms spikes) on the CPU. The spikes were what made the picture stutter. |
+| Frames → 30 fps games | Skip repeated frames | **On** | Frame generation works from the real 30 frames. |
+| Picture → Upscaling | Upscaler | **RTX VSR** | The 1080p stream sharp at 1440p. AI (FSRCNNX) stands in when VSR isn't running. |
+| Picture → Sharpening | Sharpener | **NVIDIA NIS** | |
+| | Strength | **100%** | Lower it if edges look bright or grainy. |
+| Picture → Display | Sync | **Variable** | With G-SYNC on for Velora. |
+| Audio → Timing | Latency | **Balanced** | Smooths network jitter for very little delay. |
+| Top right | Full screen | **On** (`F11`) | |
+| Console → Discord | Show what you play | **On** | Shows the game and its cover art on your profile. |
+
+> [!TIP]
+> If camera turns look smeared with Motion vectors **Off**, try **Smoothed**.
+> The vectors come only from CPU decoding, so that brings back the CPU decode
+> (spread over two cores, one frame more delay).
 
 ### Keyboard shortcuts
 
@@ -226,8 +248,9 @@ flowchart LR
 
 1. The payload starts the console's hardware encoder at 1080p60 and streams
    the frames and sound over plain HTTP.
-2. The app decodes each frame on the CPU, which also gives it the encoder's
-   motion vectors, and drops the frames a 30 fps game sends twice.
+2. The app decodes each frame on the GPU, or on the CPU when it uses the
+   encoder's motion vectors (only CPU decoding gives them), and drops the
+   frames a 30 fps game sends twice.
 3. Each real frame is sharpened and, on NVIDIA, upscaled with RTX VSR, then
    handed to DLSS-G or FSR 3 with its motion vectors. They generate the frames
    in between and pace them to the monitor.
