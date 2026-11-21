@@ -4,7 +4,7 @@
 
 **Your jailbroken PS5 on your Windows PC, smoother: frame generation, sharpening and variable refresh.**
 
-![Version](https://img.shields.io/badge/version-1.0-8B7CFF)
+![Version](https://img.shields.io/badge/version-1.2.0-8B7CFF)
 ![Platform](https://img.shields.io/badge/platform-Windows%2010%20%7C%2011-0078D6)
 ![Console](https://img.shields.io/badge/console-PS5%20(jailbroken)-003791)
 ![GPU](https://img.shields.io/badge/GPU-NVIDIA%20%7C%20AMD%20%7C%20Intel-22D3EE)
@@ -115,11 +115,11 @@ Upload the ELF to Payload Manager's folder on the console (FTP on port 2121
 here; use your console's IP):
 
 ```bash
-curl --ftp-create-dirs -T velora-payload.elf ftp://<ps5-ip>:2121/data/pldmgr/payloads/local/velora/Velora-1.0-ps5.elf
+curl --ftp-create-dirs -T velora-payload.elf ftp://<ps5-ip>:2121/data/pldmgr/payloads/local/velora/Velora-1.2.0-ps5.elf
 ```
 
 Then start **Velora** from Payload Manager on the console. You will see
-*"Velora 1.0 loaded. Starting capture..."*, then *"Velora ready on port 7231"*.
+*"Velora 1.2.0 loaded. Starting capture..."*, then *"Velora ready on port 7231"*.
 
 > [!TIP]
 > Payload Manager expects names shaped like `Name-version-ps5.elf`. If Glint
@@ -170,6 +170,7 @@ CPU out of the way.
 | Picture → Display | Sync | **Variable** | With G-SYNC on for Velora. |
 | Audio → Timing | Latency | **Balanced** | Smooths network jitter for very little delay. |
 | Top right | Full screen | **On** (`F11`) | |
+| Console → Stream | Max bitrate | **135 Mbit/s** | The PS5 encoder's highest (H.264 level 5.0); 240 and above are refused. Takes effect after the PS5 restarts. Wired network. |
 | Console → Discord | Show what you play | **On** | Shows the game and its cover art on your profile. |
 
 > [!TIP]
@@ -182,7 +183,7 @@ CPU out of the way.
 | Key | Action | | Key | Action |
 |---|---|---|---|---|
 | `P` | Next preset | | `F11` | Full screen (or double-click) |
-| `F` | Frame generation: Off, 2X, 3X, 4X | | `Esc` | Close settings, leave full screen |
+| `F` | Frame generation: Off, 2X … 4X (6X on RTX 20 / 30) | | `Esc` | Close settings, leave full screen |
 | `V` | RTX Video Super Resolution | | `Ctrl+,` | Settings |
 | `M` | Sound on/off | | `H` | Hide controls |
 | `L` | Cycle latency mode | | `T` | Dark / light theme |
@@ -198,7 +199,7 @@ in Settings.
 | Card | Frame generation | Sharpening | Sync |
 |---|---|---|---|
 | **NVIDIA RTX 40 / 50** | DLSS-G, up to 4X | NIS | G-SYNC profile |
-| **NVIDIA RTX 20 / 30** | DLSS-G, up to 4X, through the bundled `dlssg` mod files | NIS | G-SYNC profile |
+| **NVIDIA RTX 20 / 30** | DLSS-G, up to 6X, through the bundled `dlssg` mod files (0.4.2, DLSS-G 310.9.16) | NIS | G-SYNC profile |
 | **NVIDIA GTX** | AMD FSR 3, 2X | CAS | V-Sync, or G-SYNC |
 | **AMD Radeon** | AMD FSR 3, 2X | CAS | V-Sync, or FreeSync (Variable) |
 | **Intel Arc / Iris** | AMD FSR 3, 2X | CAS | V-Sync, or Adaptive-Sync (Variable) |
